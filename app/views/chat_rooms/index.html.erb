@@ -1,0 +1,19 @@
+<div class="container">
+  <h2>Chat Rooms</h2>
+ 
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Owner</th>
+        <th>Name</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @chat_rooms.each do |chat_room| %>
+        <%= render "chat_rooms/chat_room", chat_room: chat_room %>
+      <% end %>
+    </tbody>
+  </table>
+</div>
