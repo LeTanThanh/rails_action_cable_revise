@@ -1,0 +1,20 @@
+<%= link_to chat_room, class: "chat_list" do %><!-- active_chat -->
+  <div class="chat_people">
+    <div class="chat_img">
+      <% user = message.try(:user) || chat_room.owner %>
+      <%= image_tag user.decorate.avatar_url, class: "img-avatar" %>
+    </div>
+
+    <div class="chat_ib">
+      <h5>
+        <%= user.name %>
+        <span class="chat_date">
+          <%= message.decorate.short_format_created_at if message %>
+        </span>
+      </h5>
+      <p>
+        <%= message&.content || "[Empty Chat Room created by #{user.name}]" %>
+      </p>
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,16 @@
+<div class="incoming_msg">
+  <div class="incoming_msg_img">
+    <%= image_tag user.decorate.avatar_url, class: "img-avatar" %>
+  </div>
+
+  <div class="received_msg">
+    <div class="received_withd_msg">
+      <p>
+        <%= message.content %>
+      </p>
+      <span class="time_date">
+        <%= message.decorate.long_format_created_at %>
+      </span>
+    </div>
+  </div>
+</div>

@@ -3,4 +3,6 @@ class ChatRoom < ApplicationRecord
   has_many :messages, dependent: :destroy
 
   validates :name, presence: true
+
+  scope :newest, -> { order(id: :desc, created_at: :desc) }
 end
