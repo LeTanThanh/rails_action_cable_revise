@@ -6,5 +6,5 @@ Rails.application.routes.draw do
     registrations: "user/registrations"
   }
 
-  resources :chat_rooms, only: %i|index|
+  resources :chat_rooms, only: %i|index new create|
 end
