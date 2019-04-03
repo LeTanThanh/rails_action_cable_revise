@@ -4,7 +4,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable, :validatable
 
   has_many :chat_rooms, dependent: :destroy
-  has_many :chat_room_users, dependent: :destroy
   has_many :messages, dependent: :destroy
 
   validates :name, presence: true
