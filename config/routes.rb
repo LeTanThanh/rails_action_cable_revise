@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
-  devise_for :users
   root "pages#index"
+
+  devise_for :users, controllers: {
+    sessions: "user/sessions",
+    registrations: "user/registrations"
+  }
 end
