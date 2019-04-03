@@ -10,7 +10,7 @@
 
         <div class="inbox_chat">
           <% @chat_rooms.each do |chat_room| %>
-            <%= render "chat_rooms/chat_room_with_newest_message", chat_room: chat_room, message: chat_room.messages.newest.first %>
+            <%= render "chat_rooms/chat_room_with_newest_message", chat_room: chat_room, message: chat_room.messages.last %>
           <% end %>
         </div>
       </div>

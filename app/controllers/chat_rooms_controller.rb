@@ -22,8 +22,8 @@ class ChatRoomsController < ApplicationController
   end
 
   def show
-    @chat_rooms = ChatRoom.newest
-    @messages = @chat_room.messages
+    @chat_rooms = ChatRoom.includes(:owner, messages: [:user]).newest
+    @messages = @chat_room.messages.includes(:user)
   end
 
   private
