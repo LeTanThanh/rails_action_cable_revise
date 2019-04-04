@@ -16,3 +16,11 @@
 //= require jquery
 //= require bootstrap-sprockets
 //= require_tree .
+
+$(document).on('turbolinks:load', function() {
+  $('.msg_history').animate({
+      scrollTop: $('.msg_history').get(0).scrollHeight
+    },
+    'fast'
+  );
+});
