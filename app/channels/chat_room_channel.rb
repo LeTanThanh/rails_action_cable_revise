@@ -6,4 +6,8 @@ class ChatRoomChannel < ApplicationCable::Channel
   def unsubscribed
     # Any cleanup needed when channel is unsubscribed
   end
+
+  def receive_message data
+    action_cable_current_user.messages.create chat_room_id: data["chat_room_id"], content: data["message_content"]
+  end
 end
