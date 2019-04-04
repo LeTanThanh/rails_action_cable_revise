@@ -6,14 +6,12 @@
       </span>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active">
+      <li class="<%= active_navbar request.path,
+        [root_path] +  ChatRoom.pluck(:id).map{ |id| chat_room_path(id: id) } %>">
         <%= link_to "Chat Rooms", root_path %>
       </li>
-      <li>
+      <li class="<%= active_navbar request.path, [new_chat_room_path, chat_rooms_path] %>">
         <%= link_to "Create Chat Room", new_chat_room_path %>
-      </li>
-      <li>
-        <%= link_to "Page 2", "#" %>
       </li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
