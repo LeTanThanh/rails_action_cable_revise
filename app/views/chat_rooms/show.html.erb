@@ -1,5 +1,6 @@
 <div class="container">
-  <div class="js-messaging-container messaging" data-chat-room-id="<%= @chat_room.id %>">
+  <div class="js-messaging-container messaging"
+    data-chat-room-id="<%= @chat_room.id %>" data-user-id="<%= current_user.id %>">
     <div class="inbox_msg">
       <div class="inbox_people">
         <div class="headind_srch">
@@ -10,7 +11,8 @@
 
         <div class="inbox_chat">
           <% @chat_rooms.each do |chat_room| %>
-            <%= render "chat_rooms/chat_room_with_newest_message", chat_room: chat_room, message: chat_room.messages.last %>
+            <%= render "chat_rooms/chat_room_with_newest_message", chat_room: chat_room,
+              message: chat_room.messages.last, current_chat_room_id: @chat_room.id %>
           <% end %>
         </div>
       </div>

@@ -1,4 +1,4 @@
-<%= link_to chat_room, class: "chat_list" do %><!-- active_chat -->
+<%= link_to chat_room, class: "chat_list #{ active_chat_room chat_room.id, current_chat_room_id }" do %>
   <div class="chat_people">
     <div class="chat_img">
       <% user = message.try(:user) || chat_room.owner %>

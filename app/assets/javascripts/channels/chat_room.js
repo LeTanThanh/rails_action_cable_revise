@@ -6,6 +6,7 @@
     }
     
     var chatRoomId = container.data('chatRoomId');
+    var userId = container.data('userId');
 
     App.chat_room_client = App.cable.subscriptions.create({
       channel: 'ChatRoomChannel',
@@ -18,7 +19,17 @@
 
       },
       received: function(data) {
-        
+        if (userId == data['user_id']) {
+          $('.js-msg_history').append(data['user_message']);
+        } else {
+          $('.js-msg_history').append(data['other_user_message']);
+        }
+
+        $('.js-msg_history').animate({
+            scrollTop: $('.js-msg_history').get(0).scrollHeight
+          },
+          'fast'
+        );
       },
       send_message: function(chatRoomId, messageContent) {
         this.perform('receive_message', {
