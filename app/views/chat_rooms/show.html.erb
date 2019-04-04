@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="messaging">
+  <div class="js-messaging-container messaging" data-chat-room-id="<%= @chat_room.id %>">
     <div class="inbox_msg">
       <div class="inbox_people">
         <div class="headind_srch">
@@ -16,7 +16,7 @@
       </div>
 
       <div class="mesgs">
-        <div class="msg_history">
+        <div class="js-msg_history msg_history">
           <% @messages.each do |message| %>
             <% if message.user == current_user %>
               <%= render "chat_rooms/user_message", message: message, user: message.user %>

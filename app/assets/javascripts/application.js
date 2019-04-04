@@ -18,8 +18,8 @@
 //= require_tree .
 
 $(document).on('turbolinks:load', function() {
-  $('.msg_history').animate({
-      scrollTop: $('.msg_history').get(0).scrollHeight
+  $('.js-msg_history').animate({
+      scrollTop: $('.js-msg_history').get(0).scrollHeight
     },
     'fast'
   );
