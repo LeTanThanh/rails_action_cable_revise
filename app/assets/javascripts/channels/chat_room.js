@@ -25,11 +25,11 @@
           $('.js-msg_history').append(data['other_user_message']);
         }
 
-        $('.js-msg_history').animate({
-            scrollTop: $('.js-msg_history').get(0).scrollHeight
-          },
-          'fast'
-        );
+        $('.js-inbox_chat').find('.js-message-chat-room-' + chatRoomId).remove();
+        $('.js-inbox_chat').prepend(data['chat_room_with_newest_message']);
+
+        activeMessage();
+        scrollToLastMessage();
       },
       send_message: function(chatRoomId, messageContent) {
         this.perform('receive_message', {

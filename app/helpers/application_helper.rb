@@ -13,8 +13,4 @@ module ApplicationHelper
   def active_navbar request_path, active_paths
     "active" if active_paths.include?(request_path)
   end
-
-  def active_chat_room chat_room_id, current_chat_room_id
-    "active_chat" if chat_room_id == current_chat_room_id
-  end
 end

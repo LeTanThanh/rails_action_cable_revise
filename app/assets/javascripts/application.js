@@ -18,9 +18,24 @@
 //= require_tree .
 
 $(document).on('turbolinks:load', function() {
+  activeMessage();
+
+  scrollToLastMessage();
+});
+
+function activeMessage() {
+  var container = $('.js-messaging-container');
+  if (container.length) {
+    var chatRoomId = container.data('chatRoomId');
+    $('.chat_list').removeClass('active_chat');
+    $('.js-message-chat-room-' + chatRoomId).addClass('active_chat');
+  }
+}
+
+function scrollToLastMessage() {
   $('.js-msg_history').animate({
-      scrollTop: $('.js-msg_history').get(0).scrollHeight
+    scrollTop: $('.js-msg_history').get(0).scrollHeight
     },
     'fast'
   );
-});
+};
