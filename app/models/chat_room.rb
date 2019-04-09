@@ -4,5 +4,13 @@ class ChatRoom < ApplicationRecord
 
   validates :name, presence: true
 
-  scope :newest, -> { order(id: :desc, created_at: :desc) }
+  after_create :update_newest_time
+
+  scope :newest, -> { order(newest_time: :desc, id: :desc) }
+
+  private
+
+  def update_newest_time
+    update_attributes newest_time: created_at
+  end
 end
